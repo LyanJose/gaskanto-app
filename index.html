@@ -20,16 +20,13 @@
 
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
             // L'application est ouverte en mode standalone (PWA sur mobile).
-            window.location.replace('./welcome_mobile.html');
+            window.location.replace('./views/app/home.html');
         } else if (window.navigator.userAgent.match(/Android/i) || window.navigator.userAgent.match(/webOS/i) || window.navigator.userAgent.match(/iPhone/i) || window.navigator.userAgent.match(/iPad/i) || window.navigator.userAgent.match(/iPod/i) || window.navigator.userAgent.match(/BlackBerry/i) || window.navigator.userAgent.match(/Windows Phone/i)) {
             // L'application est ouverte dans un navigateur sur un dispositif mobile.
-            window.location.replace('./welcome_mobile_browser.html');
-        } else if (window.navigator.userAgent.includes('Electron')) {
-            // L'application est ouverte dans une application Electron (environnement de bureau).
-            window.location.replace('./welcome_desktop.html');
+            window.location.replace('./view/navigator/mobile.html');
         } else {
             // L'application est ouverte dans un navigateur sur un ordinateur.
-            window.location.replace('./welcome_browser.html');
+            window.location.replace('./view/navigator/desktop.html');
         }
 
     </script>
