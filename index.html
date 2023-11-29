@@ -21,7 +21,11 @@
         }
 
         if (window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches) {
-            console.log("L'application est ouverte en mode standalone (PWA sur mobile).");
+            if (window.innerWidth <= 600) {
+                console.log("L'application PWA est ouverte sur mobile.");
+            } else {
+                console.log("L'application PWA est ouverte sur ordinateur.");
+            }
         } else if (window.navigator.userAgent.includes('Electron')) {
             console.log("L'application est ouverte dans une application Electron (environnement de bureau).");
         } else {
