@@ -11,8 +11,6 @@
 </head>
 
 <body>
-    <h1>Hello World !</h1>
-    <!-- <script src="app.js"></script> -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -21,13 +19,17 @@
         }
 
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-            console.log("L'application est ouverte en mode standalone (PWA sur mobile).");
+            // L'application est ouverte en mode standalone (PWA sur mobile).
+            window.location.replace('./welcome_mobile.html');
         } else if (window.navigator.userAgent.match(/Android/i) || window.navigator.userAgent.match(/webOS/i) || window.navigator.userAgent.match(/iPhone/i) || window.navigator.userAgent.match(/iPad/i) || window.navigator.userAgent.match(/iPod/i) || window.navigator.userAgent.match(/BlackBerry/i) || window.navigator.userAgent.match(/Windows Phone/i)) {
-            console.log("L'application est ouverte dans un navigateur sur un dispositif mobile.");
+            // L'application est ouverte dans un navigateur sur un dispositif mobile.
+            window.location.replace('./welcome_mobile_browser.html');
         } else if (window.navigator.userAgent.includes('Electron')) {
-            console.log("L'application est ouverte dans une application Electron (environnement de bureau).");
+            // L'application est ouverte dans une application Electron (environnement de bureau).
+            window.location.replace('./welcome_desktop.html');
         } else {
-            console.log("L'application est ouverte dans un navigateur sur un ordinateur.");
+            // L'application est ouverte dans un navigateur sur un ordinateur.
+            window.location.replace('./welcome_browser.html');
         }
 
     </script>
