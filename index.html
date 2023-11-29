@@ -20,16 +20,14 @@
             })
         }
 
-        if (window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches) {
-            if (window.innerWidth <= 600) {
-                console.log("L'application PWA est ouverte sur mobile.");
-            } else {
-                console.log("L'application PWA est ouverte sur ordinateur.");
-            }
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+            console.log("L'application est ouverte en mode standalone (PWA sur mobile).");
+        } else if (window.navigator.userAgent.match(/Android/i) || window.navigator.userAgent.match(/webOS/i) || window.navigator.userAgent.match(/iPhone/i) || window.navigator.userAgent.match(/iPad/i) || window.navigator.userAgent.match(/iPod/i) || window.navigator.userAgent.match(/BlackBerry/i) || window.navigator.userAgent.match(/Windows Phone/i)) {
+            console.log("L'application est ouverte dans un navigateur sur un dispositif mobile.");
         } else if (window.navigator.userAgent.includes('Electron')) {
             console.log("L'application est ouverte dans une application Electron (environnement de bureau).");
         } else {
-            console.log("L'application est ouverte dans un navigateur.");
+            console.log("L'application est ouverte dans un navigateur sur un ordinateur.");
         }
 
     </script>
