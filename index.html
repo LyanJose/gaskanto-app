@@ -1,6 +1,7 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="./manifest.json">
 </head>
+
 <body>
     <h1>Hello World !</h1>
     <script src="app.js"></script>
@@ -17,6 +19,16 @@
                 navigator.serviceWorker.register('./sw.js')
             })
         }
+
+        if (window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches) {
+            console.log("L'application est ouverte en mode standalone (PWA sur mobile).");
+        } else if (window.navigator.userAgent.includes('Electron')) {
+            console.log("L'application est ouverte dans une application Electron (environnement de bureau).");
+        } else {
+            console.log("L'application est ouverte dans un navigateur.");
+        }
+
     </script>
 </body>
+
 </html>
